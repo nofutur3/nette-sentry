@@ -1,7 +1,7 @@
 # Sentry for [Nette](https://www.nette.org)
-[![Build Status](https://travis-ci.org/nofutur3/nette-sentry.svg?branch=master)](https://travis-ci.org/nofutur3/tracy-gitpanel)
-[![Downloads this Month](https://img.shields.io/packagist/dm/nofutur3/nette-sentry.svg)](https://packagist.org/packages/nofutur3/tracy-gitpanel)
-[![Latest stable](https://img.shields.io/packagist/v/nofutur3/nette-sentry.svg)](https://packagist.org/packages/nofutur3/tracy-gitpanel)
+[![Build Status](https://travis-ci.org/nofutur3/nette-sentry.svg?branch=master)](https://travis-ci.org/nofutur3/nette-sentry)
+[![Downloads this Month](https://img.shields.io/packagist/dm/nofutur3/nette-sentry.svg)](https://packagist.org/packages/nofutur3/nette-sentry)
+[![Latest stable](https://img.shields.io/packagist/v/nofutur3/nette-sentry.svg)](https://packagist.org/packages/nofutur3/nette-sentry)
 
 
 Nette integration for Sentry
