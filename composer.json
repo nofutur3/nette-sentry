@@ -1,0 +1,27 @@
+{
+    "name": "nofutur3/nette-sentry",
+    "type": "library",
+    "description": "Nette integration for Sentry (http://getsentry.com)",
+    "keywords": ["logging", "errors", "nette", "sentry"],
+    "homepage": "http://getsentry.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jakub Vyvazil",
+            "email": "jakub@vyvazil.cz"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "sentry/sentry": ">=1.5.0",
+        "nette/nette": ">=2.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.6.6"
+    },
+    "autoload": {
+        "psr-0" : {
+            "Nofutur3\\Sentry\\": "src/"
+        }
+    }
+}
