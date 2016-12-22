@@ -40,9 +40,9 @@ class SentryExtension extends CompilerExtension
             $init = $class->methods['initialize'];
         }
 
-        $code = '$sentry = new ' . Sentry::class . '(?, ?, ?, ?, ?, ?);';
-        $code .= Debugger::class . '::$onFatalError[] = function($e) use ($sentry) {$sentry->onFatalError($e);};';
-        $code .= Debugger::class . '::setLogger($sentry)';
+        $code = '$sentry = new ' . Sentry::class . '(?, ?, ?, ?, ?);' . PHP_EOL;
+        $code .= Debugger::class . '::$onFatalError[] = function($e) use ($sentry) {$sentry->onFatalError($e);};' . PHP_EOL;
+        $code .= Debugger::class . '::setLogger($sentry);';
 
         $init->addBody($code, $config);
     }
@@ -62,6 +62,8 @@ class SentryExtension extends CompilerExtension
         $defaults['dir'] = Debugger::$logDirectory;
         $defaults['email'] = Debugger::$email;
         $defaults['options'] = [];
+
+        return $defaults;
     }
 
 }
