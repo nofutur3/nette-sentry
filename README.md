@@ -1,4 +1,4 @@
-# Sentry for [Nette](https://www.nette.org)
+# Sentry for [Nette](https://www.nette.org) framework
 [![Build Status](https://travis-ci.org/nofutur3/nette-sentry.svg?branch=master)](https://travis-ci.org/nofutur3/nette-sentry)
 [![Downloads this Month](https://img.shields.io/packagist/dm/nofutur3/nette-sentry.svg)](https://packagist.org/packages/nofutur3/nette-sentry)
 [![Latest stable](https://img.shields.io/packagist/v/nofutur3/nette-sentry.svg)](https://packagist.org/packages/nofutur3/nette-sentry)
@@ -28,9 +28,8 @@ $configurator
 ##### With Nette (2.3+)
 ```
 extensions:
-    sentry: Nofutur3\Sentry\SentryExtension
+    sentry: Nofutur3\Sentry\DI\SentryExtension
     
 sentry:
     dsn: (your dsn from sentry)
 ```
-##### Standalone with Tracy

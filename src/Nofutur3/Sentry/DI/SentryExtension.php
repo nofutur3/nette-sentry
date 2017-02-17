@@ -1,11 +1,4 @@
 <?php
-/**
- * SentryExtension.php
- *
- * @package  : Sentry
- * @author   : Jakub Vyvazil <jakub@vyvazil.cz>
- * @copyright: 2016
- */
 
 namespace Nofutur3\Sentry\DI;
 
