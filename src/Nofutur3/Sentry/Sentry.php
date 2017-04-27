@@ -1,14 +1,12 @@
 <?php
 /**
- * Sentry.php
+ * Sentry.php.
  *
- * @package  : Sentry
  * @author   : Jakub Vyvazil <jakub@vyvazil.cz>
  * @copyright: 2016
  */
 
 namespace Nofutur3\Sentry;
-
 
 use Exception;
 use Tracy\Debugger;
@@ -16,7 +14,7 @@ use Tracy\Logger;
 
 class Sentry extends Logger
 {
-    /** @var  \Raven_Client */
+    /** @var \Raven_Client */
     private $client;
 
     /** @var bool */
@@ -24,6 +22,12 @@ class Sentry extends Logger
 
     /**
      * Sentry constructor.
+     *
+     * @param mixed $dsn
+     * @param mixed $isDebugMode
+     * @param null|mixed $directory
+     * @param null|mixed $email
+     * @param mixed $options
      */
     public function __construct($dsn, $isDebugMode = false, $directory = null, $email = null, $options = [])
     {
@@ -33,7 +37,7 @@ class Sentry extends Logger
         $this->client = new \Raven_Client($dsn, $options);
 
         $sentry = $this;
-        Debugger::$onFatalError[] = function($e) use ($sentry) {
+        Debugger::$onFatalError[] = function ($e) use ($sentry) {
             $sentry->onFatalError($e);
         };
         Debugger::setLogger($this);
