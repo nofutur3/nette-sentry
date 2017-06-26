@@ -23,6 +23,11 @@ class Sentry extends Logger
     private $isEnabled = true;
 
     /**
+     * @var Sentry
+     */
+    private static $instance;
+
+    /**
      * Sentry constructor.
      */
     public function __construct($dsn, $isDebugMode = false, $directory = null, $email = null, $options = [])
@@ -33,10 +38,14 @@ class Sentry extends Logger
         $this->client = new \Raven_Client($dsn, $options);
 
         $sentry = $this;
+
         Debugger::$onFatalError[] = function($e) use ($sentry) {
             $sentry->onFatalError($e);
         };
+
         Debugger::setLogger($this);
+
+        self::$instance = $this;
     }
 
     public function onFatalError($error)
@@ -57,8 +66,14 @@ class Sentry extends Logger
         return parent::log($message, $priority);
     }
 
-    public function setUserContext($data = null)
+    public static function setUserContext($data = null)
     {
-        $this->client->user_context($data);
+        if(self::$instance === null) {
+            throw new Exception(
+                "Sentry instance is not initialized yet! You are setting usercontext too soon!"
+            );
+        } else {
+            self::$instance->client->user_context($data);
+        }
     }
 }
