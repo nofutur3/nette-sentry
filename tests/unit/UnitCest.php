@@ -12,7 +12,17 @@ class UnitCest
     }
 
     // tests
-    public function tryToTest(UnitTester $I)
+
+    public function testThatItCapturesException(UnitTester $I)
+    {
+        $exc = new \Exception();
+        $mockEvent = $I->getMockBuilder('')->disableOriginalConstructor()->getMock();
+        $mockEvent
+            ->method('getException')
+            ->willReturn($exc);
+    }
+
+    public function testUserContext(UnitTester $I)
     {
     }
 }

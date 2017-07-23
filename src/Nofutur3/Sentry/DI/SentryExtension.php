@@ -2,8 +2,6 @@
 
 namespace Nofutur3\Sentry\DI;
 
-
-use Nette;
 use Nette\Configurator;
 use Nette\DI\Compiler;
 use Nette\DI\CompilerExtension;
@@ -33,9 +31,9 @@ class SentryExtension extends CompilerExtension
             $init = $class->methods['initialize'];
         }
 
-        $code = '$sentry = new ' . Sentry::class . '(?, ?, ?, ?, ?);' . PHP_EOL;
-        $code .= Debugger::class . '::$onFatalError[] = function($e) use ($sentry) {$sentry->onFatalError($e);};' . PHP_EOL;
-        $code .= Debugger::class . '::setLogger($sentry);';
+        $code = '$sentry = new '.Sentry::class.'(?, ?, ?, ?, ?, ?, ?);'.PHP_EOL;
+        $code .= Debugger::class.'::$onFatalError[] = function($e) use ($sentry) {$sentry->onFatalError($e);};'.PHP_EOL;
+        $code .= Debugger::class.'::setLogger($sentry);';
 
         $init->addBody($code, $config);
     }
@@ -54,9 +52,10 @@ class SentryExtension extends CompilerExtension
         $defaults['debug'] = false;
         $defaults['dir'] = Debugger::$logDirectory;
         $defaults['email'] = Debugger::$email;
+        $defaults['user'] = [];
+        $defaults['skip_capture'] = [];
         $defaults['options'] = [];
 
         return $defaults;
     }
-
 }
