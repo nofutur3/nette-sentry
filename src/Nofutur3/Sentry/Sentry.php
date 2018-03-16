@@ -40,7 +40,6 @@ class Sentry extends Logger
         parent::__construct($directory, $email, Debugger::getBlueScreen());
 
         $this->isEnabled = Debugger::$productionMode || $isDebugMode;
-        $this->isEnabled = true;
         $this->client = new \Raven_Client($dsn, $options);
 
         $sentry = $this;
