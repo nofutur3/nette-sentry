@@ -64,7 +64,7 @@ class Sentry extends Logger
         if ($this->isEnabled) {
             $data = $message instanceof Exception ? $this->getExceptionFile($message) : null;
             $data = $this->formatLogLine($message, $data);
-            $this->client->captureException($message, $data, $priority);
+            $this->client->captureException($message, [$data], $priority);
         }
 
         return parent::log($message, $priority);
