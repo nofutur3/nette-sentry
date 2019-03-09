@@ -29,8 +29,8 @@ class Sentry extends Logger
      *
      * @param mixed $dsn
      * @param mixed $isDebugMode
-     * @param null|mixed $directory
-     * @param null|mixed $email
+     * @param mixed|null $directory
+     * @param mixed|null $email
      * @param mixed $options
      * @param mixed $user
      * @param mixed $skip_capture
